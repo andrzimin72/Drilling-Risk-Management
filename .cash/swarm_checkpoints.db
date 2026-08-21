@@ -1,0 +1,17 @@
+CREATE TABLE checkpoints (
+    task_id TEXT PRIMARY KEY,         -- Unique swarm task ID
+    context_json TEXT,                -- Serialized SwarmContext
+    status TEXT,                      -- 'running' | 'complete' | 'error'
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE agent_results (
+    task_id TEXT,                     -- FK to checkpoints.task_id
+    domain TEXT,                      -- 'drilling', 'logs', etc.
+    result_json TEXT,                 -- Serialized AgentResult
+    saved_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (task_id, domain)
+);
+
+CREATE INDEX idx_status ON checkpoints(status);
+CREATE INDEX idx_task ON agent_results(task_id);
