@@ -1,0 +1,72 @@
+# =============================================================================
+# Oil & Gas Risk Management System — Docker Compose
+# =============================================================================
+# Usage:
+#   docker-compose up -d          # Start in background
+#   docker-compose logs -f        # View logs
+#   docker-compose down           # Stop and remove
+# =============================================================================
+
+version: '3.8'
+
+services:
+  # Main application — Streamlit Dashboard + MCP Server
+  oil-gas-swarm:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: oil-gas-swarm
+    restart: unless-stopped
+    ports:
+      - "8501:8501"   # Streamlit Dashboard
+      - "8342:8342"   # MCP Server
+    env_file:
+      - .env
+    volumes:
+      # Persistent storage for cache, history, and checkpoints
+      - ./data/cache:/app/.cache
+      # Optional: mount input files for processing
+      - ./data/input:/app/input:ro
+      # Optional: mount output directory for generated reports
+      - ./data/output:/app/output
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    deploy:
+      resources:
+        limits:
+          cpus: '4.0'
+          memory: 4G
+        reservations:
+          cpus: '2.0'
+          memory: 2G
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - oil-gas-network
+
+  # Optional: Jaeger for OpenTelemetry tracing
+  jaeger:
+    image: jaegertracing/all-in-one:1.55
+    container_name: oil-gas-jaeger
+    restart: unless-stopped
+    ports:
+      - "16686:16686"   # Jaeger UI
+      - "4317:4317"     # OTLP gRPC
+      - "4318:4318"     # OTLP HTTP
+    environment:
+      - COLLECTOR_OTLP_ENABLED=true
+    networks:
+      - oil-gas-network
+    profiles:
+      - monitoring  # Only starts with: docker-compose --profile monitoring up
+
+networks:
+  oil-gas-network:
+    driver: bridge
