@@ -1,0 +1,50 @@
+# =============================================================================
+# Drilling Risk Management System — Runtime Configuration
+# =============================================================================
+# This file overrides default settings in code.
+# Environment variables (.env) take precedence over this file.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Petrophysics
+# -----------------------------------------------------------------------------
+gr_cutoff: 75.0          # Gamma Ray cutoff (API)
+rt_cutoff: 10.0          # Resistivity cutoff (ohm-m)
+min_net_pay_thickness: 1.0
+
+# -----------------------------------------------------------------------------
+# Performance
+# -----------------------------------------------------------------------------
+max_table_rows: 5000
+max_retries: 3
+retry_base_delay: 0.5
+log_level: INFO
+
+# -----------------------------------------------------------------------------
+# Caching
+# -----------------------------------------------------------------------------
+cache_enabled: true
+cache_dir: .cache/oil_gas_swarm
+
+# -----------------------------------------------------------------------------
+# Features
+# -----------------------------------------------------------------------------
+vision_fallback_enabled: true
+rag_risk_advisor_enabled: true
+checkpointing_enabled: true
+risk_management_enabled: true
+word_reports_enabled: true
+pdf_export_enabled: true
+
+# -----------------------------------------------------------------------------
+# Localization
+# -----------------------------------------------------------------------------
+default_language: ru
+default_unit_system: metric
+company_name: "ПАО «Газпром нефть»"
+
+# -----------------------------------------------------------------------------
+# Telemetry
+# -----------------------------------------------------------------------------
+telemetry_enabled: true
+otlp_endpoint: null      # Set to "http://localhost:4317" for Jaeger
