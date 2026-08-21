@@ -1,0 +1,89 @@
+# =============================================================================
+# Drilling Risk Management System — Python Dependencies
+# Version: 1.0.0
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Core Dependencies (Required)
+# -----------------------------------------------------------------------------
+pydantic>=2.0.0,<3.0.0            # Data validation & schemas
+PyYAML>=6.0                       # Configuration file parsing
+
+# -----------------------------------------------------------------------------
+# File Parsers (Required)
+# -----------------------------------------------------------------------------
+lasio>=0.31                       # LAS 2.0/3.0 well log parsing
+dlisio>=0.5.0                     # DLIS/LIS binary log containers
+pdfplumber>=0.10.0                # PDF text & table extraction
+pypdf>=3.0.0                      # PDF fallback parser
+openpyxl>=3.1.0                   # Excel .xlsx parsing
+pandas>=2.0.0                     # CSV/Excel data manipulation
+python-docx>=1.0.0                # Word document parsing & generation
+
+# -----------------------------------------------------------------------------
+# Numerical Computing (Required for Pillar 1 — Performance)
+# -----------------------------------------------------------------------------
+numpy>=1.24.0                     # Vectorized math (trajectory, pay zones)
+
+# -----------------------------------------------------------------------------
+# AI & Predictive Capabilities
+# -----------------------------------------------------------------------------
+anthropic>=0.30.0                 # Claude SDK (Vision LLM fallback)
+chromadb>=0.5.0                   # Vector DB for RAG risk prediction
+pypdfium2>=4.0.0                  # PDF to image conversion (for Vision LLM)
+sentence-transformers>=2.2.0      # Multilingual embeddings (optional, for Russian RAG)
+
+# -----------------------------------------------------------------------------
+# Observability & Recovery
+# -----------------------------------------------------------------------------
+opentelemetry-api>=1.20.0         # Distributed tracing API
+opentelemetry-sdk>=1.20.0         # Tracing SDK
+opentelemetry-exporter-otlp>=1.20.0  # OTLP exporter (Jaeger/Grafana)
+
+# -----------------------------------------------------------------------------
+# Dashboard & Reporting
+# -----------------------------------------------------------------------------
+streamlit>=1.35.0                 # Web dashboard framework
+plotly>=5.18.0                    # Interactive charts (risk matrix, Pareto, DLS)
+
+# PDF Export (choose one or both):
+docx2pdf>=0.1.8                   # Word → PDF via MS Word (Windows/Mac)
+weasyprint>=60.0                  # HTML → PDF (Linux headless)
+fpdf2>=2.7.0                      # Pure Python PDF fallback (universal)
+
+# -----------------------------------------------------------------------------
+# External AI Framework Adapters (Optional — install as needed)
+# -----------------------------------------------------------------------------
+# Uncomment the ones you need:
+
+# AutoGen / AG2
+# pyautogen>=0.2.0
+# ag2>=0.2.0
+
+# CrewAI
+# crewai>=0.30.0
+# crewai-tools>=0.4.0
+
+# LangGraph
+# langgraph>=0.0.40
+# langchain-anthropic>=0.1.0
+# langchain-core>=0.2.0
+
+# -----------------------------------------------------------------------------
+# MCP (Model Context Protocol) Server
+# -----------------------------------------------------------------------------
+fastmcp>=0.4.0                    # FastMCP server (preferred)
+mcp>=1.0.0                        # Raw MCP SDK (fallback)
+
+# -----------------------------------------------------------------------------
+# Development & Testing
+# -----------------------------------------------------------------------------
+pytest>=7.4.0                     # Test framework
+pytest-asyncio>=0.21.0            # Async test support
+pytest-cov>=4.1.0                 # Test coverage reporting
+
+# -----------------------------------------------------------------------------
+# Utilities
+# -----------------------------------------------------------------------------
+python-dotenv>=1.0.0              # .env file loading
+requests>=2.31.0                  # HTTP client (for OTLP, etc.)
