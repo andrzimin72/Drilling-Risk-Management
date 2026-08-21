@@ -1,0 +1,84 @@
+# Drilling Risk Management System — Architecture
+
+**Version:** 1.0.0 (Enterprise Edition)  
+**Client:** Gazprom Neft PJSC  
+**Last Updated:** 2026-07-31
+
+---
+
+## 1. High-Level Overview
+
+The system is a **multi-agent AI swarm** that processes oil & gas engineering data (DDRs, LAS logs, surveys, completion designs) and automatically identifies, scores, and visualizes drilling risks.
+
+### Core Principles
+- **Modular Architecture** — Each agent is independent and can be replaced/extended
+- **Async Parallel Execution** — Agents run concurrently via `asyncio`
+- **Bilingual Support** — Full Russian/English localization (Gazprom Neft ready)
+- **Unit Agnostic** — Handles both Imperial (ft, ppg) and Metric (m, g/cm³)
+- **Enterprise Resilient** — SQLite caching, crash recovery, OpenTelemetry
+
+---
+
+## 2. System Architecture Diagram
+
+```mermaid
+graph TB
+    subgraph "Input Layer"
+        A[PDF Reports<br/>DDRs, HSE]
+        B[LAS/DLIS<br/>Well Logs]
+        C[CSV/XLSX<br/>Surveys, Completions]
+        D[DOCX<br/>Programs]
+    end
+
+    subgraph "Orchestration Layer"
+        E[OrchestratorAgent]
+        F[DataManagerAgent<br/>File Detection & Routing]
+    end
+
+    subgraph "Agent Swarm (Parallel)"
+        G[DrillingAgent]
+        H[LogsAgent]
+        I[CompletionsAgent]
+        J[ProductionAgent]
+        K[DirectionalAgent]
+        L[HSEAgent]
+    end
+
+    subgraph "Synthesis Layer"
+        M[ReportAgent<br/>Cross-Domain Checks]
+        N[RiskScoringEngine<br/>5×5 Matrix]
+        O[RiskRegistry<br/>SQLite Storage]
+    end
+
+    subgraph "Output Layer"
+        P[Word Report<br/>Branded .docx]
+        Q[PDF Export<br/>docx2pdf/weasyprint]
+        R[Streamlit Dashboard<br/>Interactive UI]
+        S[JSON/CSV Export]
+    end
+
+    subgraph "AI Enhancements (Pillar 2)"
+        T[Vision LLM Fallback<br/>Claude 3.5 Sonnet]
+        U[RAG Risk Advisor<br/>ChromaDB Vector Store]
+    end
+
+    subgraph "Infrastructure (Pillar 3)"
+        V[SQLite Cache<br/>Parser Results]
+        W[Checkpoint DB<br/>Crash Recovery]
+        X[OpenTelemetry<br/>Jaeger/Grafana]
+    end
+
+    A --> F
+    B --> F
+    C --> F
+    D --> F
+    F --> E
+    E --> G & H & I & J & K & L
+    G & H & I & J & K & L --> M
+    M --> N
+    N --> O
+    O --> P & Q & R & S
+    
+    A -.-> T
+    G -.-> U
+    E -.-> V & W & X
