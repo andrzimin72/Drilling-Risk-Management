@@ -61,7 +61,7 @@ d) Environments with Zero IT Support: If the end-user is a small, independent op
 ## 7. Quick Start Checklist
 - install Python 3.10+;
 - clone/download the project;
-- Create virtual environment;
+- create virtual environment;
 - install dependencies (pip install -r requirements.txt);
 - copy .env.example to .env and configure;
 - run tests (pytest tests/ -v);
