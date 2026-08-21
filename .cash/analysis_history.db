@@ -1,0 +1,25 @@
+CREATE TABLE analyses (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    task_id TEXT UNIQUE NOT NULL,           -- Swarm task ID
+    well_name TEXT,                          -- Well identifier
+    pad_name TEXT,                           -- Pad/cluster name
+    operator TEXT,                           -- Operating company
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    -- Execution metadata
+    files_processed INTEGER DEFAULT 0,
+    elapsed_seconds REAL DEFAULT 0,
+    agents_succeeded INTEGER DEFAULT 0,
+    agents_failed INTEGER DEFAULT 0,
+    
+    -- Results (JSON)
+    risk_summary TEXT,                       -- Aggregated risk statistics
+    risk_registry TEXT,                      -- Full list of identified risks
+    metrics TEXT,                            -- Key performance metrics
+    report_path TEXT                         -- Path to generated Word report
+);
+
+CREATE INDEX idx_well ON analyses(well_name);
+CREATE INDEX idx_pad ON analyses(pad_name);
+CREATE INDEX idx_created ON analyses(created_at DESC);
+CREATE INDEX idx_operator ON analyses(operator);
