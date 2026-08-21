@@ -1,0 +1,33 @@
+{
+    "total_risks": 12,
+    "critical_risks": 2,
+    "high_risks": 4,
+    "medium_risks": 5,
+    "low_risks": 1,
+    "risk_score": 14.5,
+    "npt_hours": 23.5,
+    "npt_events": 5,
+    "current_depth": 3245.0,
+    "rop": 45.0,
+    "mud_weight": 1.18,
+    "max_dls": 8.5,
+    "max_inclination": 90.0,
+    "total_md": 3245.0,
+    "total_tvd": 3100.0,
+    "total_net_pay": 15.5,
+    "pay_zone_count": 3,
+    "stage_count": 32,
+    "ip30": 850.0,
+    "ip90": 620.0,
+    "hse_incidents": 2,
+    "hse_npt_hours": 4.5,
+    "npt_event_details": [
+        {"description": "Pump failure", "duration": 12.5},
+        {"description": "Stuck pipe", "duration": 8.0}
+    ],
+    "dls_stations": [
+        {"md": 0, "dls": 0.0},
+        {"md": 500, "dls": 0.5},
+        {"md": 1000, "dls": 1.2}
+    ]
+}
