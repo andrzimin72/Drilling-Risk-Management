@@ -1,0 +1,70 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info
+dist
+build
+.eggs
+
+# Virtual environments
+.venv
+venv
+env
+
+# Cache and runtime data
+.cache
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment (NEVER include secrets in image)
+.env
+.env.local
+.env.production
+
+# Test artifacts
+.pytest_cache
+htmlcov
+.coverage
+coverage.xml
+
+# Documentation (not needed in image)
+docs
+*.md
+!README.md
+
+# Logs
+*.log
+logs
+
+# Jupyter
+.ipynb_checkpoints
+*.ipynb
+
+# Data files (too large for image)
+data
+*.pdf
+*.las
+*.dlis
+*.xlsx
+*.csv
