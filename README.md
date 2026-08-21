@@ -63,3 +63,14 @@ This is a Tier-1, Enterprise-Ready Decision Support System. Most companies in th
 
 It is robust, it is resilient, and it is deeply respectful of the domain-specific realities of drilling engineering. If delivered with the clear understanding that it is an engineer's co-pilot rather than an autopilot, it will provide immense value to any drilling, completions, or HSE department.
 
+## 8. Quick Start Checklist
+- Install Python 3.10+;
+- Clone/download the project;
+- Create virtual environment;
+- Install dependencies (pip install -r requirements.txt);
+- Copy .env.example to .env and configure;
+- Run tests (pytest tests/ -v);
+- Start dashboard (streamlit run dashboard.py);
+- Upload your first files and analyze.
+For questions or issues, please refer to the Troubleshooting section or Engineer's User Guide.
+
