@@ -1,0 +1,21 @@
+[
+    {
+        "risk_id": "RISK-A1B2C3D4",
+        "category": "technical",
+        "source_agent": "DirectionalAgent",
+        "title_en": "High dogleg severity: 8.5°/100ft",
+        "title_ru": "Высокая интенсивность искривления: 8.5°/100м",
+        "description_en": "Maximum DLS exceeds safe threshold...",
+        "description_ru": "Максимальная интенсивность превышает...",
+        "probability": 4,
+        "impact": 4,
+        "risk_level": "critical",
+        "mitigation_en": ["Use lubricity additives", "Monitor torque"],
+        "mitigation_ru": ["Использовать смазывающие добавки", "Мониторить момент"],
+        "status": "open",
+        "linked_wells": ["123"],
+        "linked_pads": ["5"],
+        "detected_at": "2026-07-31T14:30:00",
+        "metadata": {"max_dls": 8.5}
+    }
+]
