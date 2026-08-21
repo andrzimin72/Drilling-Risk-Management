@@ -58,19 +58,18 @@ c) Legal or Regulatory Submissions: The generated Word/PDF reports are for inter
 
 d) Environments with Zero IT Support: If the end-user is a small, independent operator with no IT department, the enterprise features (Docker, OpenTelemetry, Vector DBs) will become a burden. This software is designed for mid-to-large enterprise environments.
 
-## 7. Resume
+## 7. Quick Start Checklist
+- install Python 3.10+;
+- clone/download the project;
+- Create virtual environment;
+- install dependencies (pip install -r requirements.txt);
+- copy .env.example to .env and configure;
+- run tests (pytest tests/ -v);
+- start dashboard (streamlit run dashboard.py);
+- upload your first files and analyze.
+For more questions or issues, please refer to the Troubleshooting section or Engineer's User Guide.
+
+## 8. Resume
 This is a Tier-1, Enterprise-Ready Decision Support System. Most companies in the Oil & Gas sector are still using manual copy-paste workflows or basic, rigid database tools that break the moment a file format changes. By combining Multi-Agent AI orchestration, bilingual/unit-agnostic parsing, vector-based historical memory, and automated risk scoring, we have a product that is genuinely ahead of the curve.
 
 It is robust, it is resilient, and it is deeply respectful of the domain-specific realities of drilling engineering. If delivered with the clear understanding that it is an engineer's co-pilot rather than an autopilot, it will provide immense value to any drilling, completions, or HSE department.
-
-## 8. Quick Start Checklist
-- Install Python 3.10+;
-- Clone/download the project;
-- Create virtual environment;
-- Install dependencies (pip install -r requirements.txt);
-- Copy .env.example to .env and configure;
-- Run tests (pytest tests/ -v);
-- Start dashboard (streamlit run dashboard.py);
-- Upload your first files and analyze.
-For questions or issues, please refer to the Troubleshooting section or Engineer's User Guide.
-
