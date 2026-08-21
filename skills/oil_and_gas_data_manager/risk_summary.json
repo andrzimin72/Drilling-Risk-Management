@@ -1,0 +1,21 @@
+{
+    "total_risks": 12,
+    "by_level": {
+        "critical": 2,
+        "high": 4,
+        "medium": 5,
+        "low": 1
+    },
+    "by_category": {
+        "hse": 3,
+        "operational": 4,
+        "geological": 2,
+        "technical": 2,
+        "environmental": 1,
+        "data_integrity": 0
+    },
+    "risk_score": 14.5,
+    "max_risk_score": 25,
+    "critical_count": 2,
+    "high_count": 4
+}
