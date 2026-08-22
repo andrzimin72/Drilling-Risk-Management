@@ -1,8 +1,7 @@
 # Drilling Risk Management System — Architecture
 
 **Version:** 1.0.0 (Enterprise Edition)  
-**Client:** Gazprom Neft PJSC  
-**Last Updated:** 2026-07-31
+**Last Updated:** 2026-08-22
 
 ---
 
