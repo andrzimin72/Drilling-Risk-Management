@@ -1,5 +1,6 @@
 # Drilling-Risk-Management
 This software is an Enterprise-Grade, Multi-Agent AI Data Extraction and Risk Analysis Platform specifically tailored for the Oil and Gas Industry.
+Drilling Risk Management is a systematic approach to identifying, assessing, prioritizing, and mitigating risks associated with oil and gas drilling. Its goal is to reduce the likelihood of accidents, operational failures, and financial losses, while also ensuring personnel safety, environmental protection, and regulatory compliance.
 
 ## 1. What was it created for?
 It was created to solve one of the most expensive and time-consuming bottlenecks in upstream oil and gas operations: the manual ingestion, normalization, and analysis of unstructured and semi-structured engineering data (Daily Drilling Reports, LAS well logs, completion spreadsheets, HSE incident logs). Instead of engineers spending hundreds of hours copying data from PDFs into Excel to find trends, this system uses a swarm of specialized AI agents to read, understand, cross-reference, and score the data automatically.
